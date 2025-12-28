@@ -1,0 +1,287 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0b0b0b;
+  --bg-card: #141414;
+  --border: 1px solid #2a2a2a;
+
+  --text: #f2f2f2;
+  --text-muted: #8a8a8a;
+
+  --radius: 14px;
+  --shadow-soft: 0 20px 40px rgba(0,0,0,.35);
+  --transition: .25s ease;
+}
+
+body {
+  font-family: system-ui, -apple-system, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 22px;
+  border-bottom: var(--border);
+  background: #0f0f0f;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: .1em;
+  font-size: .9rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: var(--border);
+  color: #e6e6e6;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-btn {
+  border-radius: 999px;
+  border: var(--border);
+  background: #121212;
+  color: #9a9a9a;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-size: .85rem;
+  transition: var(--transition);
+}
+
+.nav-btn:hover {
+  background: #181818;
+  color: #ffffff;
+}
+
+.nav-btn.active {
+  background: #1e1e1e;
+  color: white;
+  border-color: #3a3a3a;
+}
+
+/* MAIN */
+
+.main {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 14px 40px;
+  width: 100%;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+.section h1 {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+
+/* CARDS */
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  margin-bottom: 16px;
+  border: var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+/* FIELDS */
+
+.field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: .85rem;
+  color: var(--text-muted);
+}
+
+input[type="number"],
+textarea {
+  background: #111111;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+  color: #f2f2f2;
+  padding: 8px 10px;
+  font-size: .9rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+input[type="number"]:focus,
+textarea:focus {
+  border-color: #ffffff;
+  box-shadow: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* BUTTONS */
+
+.primary-btn,
+.secondary-btn {
+  border-radius: 999px;
+  cursor: pointer;
+  padding: 10px 18px;
+  font-size: .9rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.primary-btn {
+  background: #151515;
+  border: 1px solid #2a2a2a;
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #1d1d1d;
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  color: #bfbfbf;
+}
+
+.secondary-btn:hover {
+  background: #141414;
+  color: white;
+}
+
+.buttons-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* CHECKBOX */
+
+.checkbox-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+/* RESULTS */
+
+.result {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #111111;
+  border: 1px dashed #3a3a3a;
+  min-height: 32px;
+  font-size: .95rem;
+  white-space: pre-wrap;
+}
+
+.result.error {
+  border-color: #bb4a4a;
+  color: #ff8a8a;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 10px 18px 18px;
+  border-top: 1px solid #141414;
+  font-size: .78rem;
+  color: #8a8a8a;
+  text-align: center;
+}
+
+/* ---------- MOBILE FIXES ---------- */
+@media (max-width: 768px) {
+
+  .nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 6px;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-btn,
+  .nav-btn.active {
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 14px;
+    margin: 8px 0;
+  }
+
+  .field-row label {
+    font-size: 13px;
+  }
+
+  input,
+  button {
+    font-size: 14px;
+  }
+
+  .result {
+    font-size: 14px;
+  }
+
+  /* prevent sideways scrolling */
+  body {
+    overflow-x: hidden;
+  }
+}
+

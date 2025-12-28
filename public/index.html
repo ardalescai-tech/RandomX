@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RandomX - Modern Random Generator</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">RandomX</div>
+      <nav class="nav">
+  <button class="nav-btn active" data-target="numbers">Numbers</button>
+  <button class="nav-btn" data-target="lists">Lists</button>
+  <button class="nav-btn" data-target="coin-dice">Coin & Dice</button>
+<button class="nav-btn" data-target="int-generator">Random Integer Generator</button>
+  <a href="about.html" class="nav-btn">About</a>
+</nav>
+    </header>
+
+    <main class="main">
+      <!-- Numbers section -->
+
+<section id="numbers" class="section active">
+  <h1>Random Numbers</h1>
+
+  <div class="card">
+    <div class="field-row">
+      <label>Min</label>
+      <input id="num-min" type="number" value="1" />
+    </div>
+
+    <div class="field-row">
+      <label>Max</label>
+      <input id="num-max" type="number" value="100" />
+    </div>
+
+    <div class="field-row">
+      <label>Count</label>
+      <input id="num-count" type="number" value="1" />
+    </div>
+
+    <button id="btn-generate-num" class="primary-btn">
+      Generate
+    </button>
+
+    <div class="result" id="num-result"></div>
+  </div>
+</section>
+
+    <section id="int-generator" class="section">
+  <h1>Random Integer Generator</h1>
+
+  <p class="section-description">
+    Generate one or more random integers within a chosen range. You can generate up to
+    20,000 values at once, with integer limits between −1,000,000,000 and +1,000,000,000.
+  </p>
+
+  <div class="card">
+    <h2>Generator</h2>
+
+    <div class="field-row">
+      <label for="rng-min">Minimum value (inclusive)</label>
+      <input id="rng-min" type="number" value="1" min="-1000000000" max="1000000000">
+    </div>
+
+    <div class="field-row">
+      <label for="rng-max">Maximum value (inclusive)</label>
+      <input id="rng-max" type="number" value="100" min="-1000000000" max="1000000000">
+    </div>
+
+    <div class="field-row">
+      <label for="rng-count">How many integers? (1–20000)</label>
+      <input id="rng-count" type="number" value="1" min="1" max="20000">
+    </div>
+
+    <div class="field-row">
+      <label for="rng-cols">Columns (display only)</label>
+      <input id="rng-cols" type="number" value="1" min="1" max="20">
+    </div>
+
+    <button id="btn-rng-generate" class="primary-btn">
+      Generate integers
+    </button>
+
+    <div class="result" id="rng-result"></div>
+  </div>
+
+  <div class="card">
+  <h2>How to use this tool</h2>
+
+  <div class="helper-block">
+    <p><strong>Enter the range</strong> — choose minimum and maximum integer values.</p>
+    <p><strong>Set how many numbers to generate</strong> (up to 20,000).</p>
+    <p><strong>Choose how many columns</strong> you want the results displayed in.</p>
+    <p><strong>Click “Generate integers”</strong> to produce secure random values.</p>
+    <p><strong>Read or copy the results</strong> into your document or spreadsheet.</p>
+  </div>
+
+  <p class="section-note">
+    Columns affect only the layout of the results, not the randomness itself.
+  </p>
+</div>
+</section>
+
+      <!-- Lists section -->
+      <section id="lists" class="section">
+        <h1>Random Lists</h1>
+        <div class="card">
+          <label for="list-items">Items (one per line)</label>
+          <textarea id="list-items" rows="6" placeholder="Alice&#10;Bob&#10;Charlie"></textarea>
+
+          <div class="field-row">
+            <label>How many to pick?</label>
+            <input id="list-count" type="number" value="1" />
+          </div>
+
+          <div class="field-row checkbox-row">
+            <input id="list-unique" type="checkbox" checked />
+            <label for="list-unique">No duplicates (unique picks)</label>
+          </div>
+
+          <div class="buttons-row">
+            <button id="btn-pick-list" class="primary-btn">Pick</button>
+            <button id="btn-shuffle-list" class="secondary-btn">Shuffle</button>
+          </div>
+
+          <div class="result" id="list-result"></div>
+        </div>
+      </section>
+
+      <!-- Coin & Dice -->
+      <section id="coin-dice" class="section">
+        <h1>Coin & Dice</h1>
+        <div class="card">
+          <h2>Coin flip</h2>
+          <button id="btn-coin" class="primary-btn">Flip coin</button>
+          <div class="result" id="coin-result"></div>
+        </div>
+
+        <div class="card">
+          <h2>Dice roll</h2>
+          <div class="field-row">
+            <label>Faces</label>
+            <input id="dice-faces" type="number" value="6" />
+          </div>
+          <div class="field-row">
+            <label>Dice count</label>
+            <input id="dice-count" type="number" value="1" />
+          </div>
+          <button id="btn-dice" class="primary-btn">Roll dice</button>
+          <div class="result" id="dice-result"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>RandomX &copy; <span id="year"></span> • crypto-secure randomness</span>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
