@@ -1,17 +1,15 @@
 export default function handler(req, res) {
-  try {
-    const { items, pick = 1, unique = true } = req.body;
-    let arr = items.split("\n").filter(x => x.trim() !== "");
-
-    const result = [];
-    for (let i = 0; i < pick; i++) {
-      const index = Math.floor(Math.random() * arr.length);
-      result.push(arr[index]);
-      if (unique) arr.splice(index, 1);
-    }
-
-    res.status(200).json({ results: result });
-  } catch {
-    res.status(500).json({ error: "Server error" });
+  if (req.method !== "GET" && req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
+
+  const { faces = 6, count = 1 } = req.query;
+  const rolls = [];
+
+  for (let i = 0; i < count; i++) {
+    rolls.push(Math.floor(Math.random() * faces) + 1);
+  }
+
+  res.status(200).json({ results: rolls });
 }
+
