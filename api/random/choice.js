@@ -1,5 +1,5 @@
 export default function handler(req, res) {
-  const { items, count, unique } = JSON.parse(req.body);
+  const { items, count, unique } = req.body;
 
   let list = [...items];
   let results = [];

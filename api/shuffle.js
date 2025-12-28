@@ -1,5 +1,5 @@
 export default function handler(req, res) {
-  const { items } = JSON.parse(req.body);
+  const { items } = req.body;
 
   const results = [...items].sort(() => Math.random() - 0.5);
 
