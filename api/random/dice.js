@@ -1,15 +1,10 @@
 export default function handler(req, res) {
-  if (req.method !== "GET" && req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
+  const faces = parseInt(req.query.faces || "6");
+  const count = parseInt(req.query.count || "1");
 
-  const { faces = 6, count = 1 } = req.query;
-  const rolls = [];
+  const results = Array.from({ length: count }, () =>
+    Math.floor(Math.random() * faces) + 1
+  );
 
-  for (let i = 0; i < count; i++) {
-    rolls.push(Math.floor(Math.random() * faces) + 1);
-  }
-
-  res.status(200).json({ results: rolls });
+  return res.status(200).json({ success: true, results });
 }
-
